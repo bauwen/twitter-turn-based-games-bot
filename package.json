@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node bot"
+  },
+  "dependencies": {
+    "canvas": "2.6.1",
+    "lzma": "2.3.2"
+  }
+}

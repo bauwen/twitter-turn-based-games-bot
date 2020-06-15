@@ -1,2 +1,9 @@
-# twitter-turn-based-games-bot
+# Twitter Turn-Based Games Bot
+
 A Twitter bot that enables users to play turn-based games via tweets.
+
+To start a match, a Twitter user needs to mention the bot followed by a game name as well as the Twitter handle of the person he wants to play against. Next, the bot will reply to the tweet by mentioning the participating players and by displaying the initial state of the game within an image. When the player whose turn it is replies to the tweet with a valid move, the bot will update the game and reply by showing the next game state. Whenever a player manages to reach a winning state, the match is over and the bot will mention the winner.
+
+For the moment, only the game tic-tac-toe has been implemented. However, other turn-based games like connect four and chess could easily be integrated as well. You can check out an example game [here](https://twitter.com/TurnGamesBot/status/1241476707493842946).
+
+The bot program does not require any external storage to keep track of the matches going on or their current state. All necessary information for the bot to know how to update the game whenever a player makes a move is embedded within the image of the bot's previous tweet. This information includes the Twitter IDs of the participating users as well as the current game state. This means that the matches are completely hosted by the Twitter platform itself. The bot periodically checks whether anyone mentions its username or whether a player replied to an ongoing game. In case of a reply, the bot will fetch the image within the tweet, decode the game's state, check whether the user replying to the tweet is the expected player, advance the match by playing the given move and finally tweeting a reply containing an image representing the new game state as well as mentioning the user who should play the next move.
